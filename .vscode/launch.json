@@ -4,25 +4,43 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-   {
-    "name": "Launch",
-    "type": "node",
-    "request": "launch",
-    "program": "${workspaceRoot}/server/server.js",
-    "stopOnEntry": false,
-    "args": [],
-    "cwd": "${workspaceRoot}",
-    "preLaunchTask": null,
-    "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
-    "runtimeArgs": [
-      "--nolazy"
-    ],
-    "env": {
-      "NODE_ENV": "development"
+    {
+      "name": "Launch",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/server/server.js",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": null,
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": false,
+      "outFiles": []
     },
-    "console": "internalConsole",
-    "sourceMaps": false,
-    "outFiles": []
-  }
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Tests",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha --compilers js:@babel/register",
+      "args": [
+        "-u",
+        "tdd",
+        "--timeout",
+        "999999",
+        "--colors",
+        "${workspaceFolder}/test"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
   ]
 }
