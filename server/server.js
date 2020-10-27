@@ -1,29 +1,15 @@
 import config from './../config/config'
-import express from 'express'
-import path from 'path'
-import bodyParser from 'body-parser'
-import cookieParser from 'cookie-parser'
-import compress from 'compression'
-import cors from 'cors'
-import helmet from 'helmet'
+import app from './express'
+import mongoose from 'mongoose'
 
+// Connection URL
+mongoose.Promise = global.Promise
+mongoose.connect(config.mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+console.info('Server started on port %s.', config.mongoUri)
+mongoose.connection.on('error', () => {
+  throw new Error(`unable to connect to database: ${config.mongoUri}`)
+})
 
-
-const app = express()
-
-// parse body params and attache them to req.body
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser())
-app.use(compress())
-// secure apps by setting various HTTP headers
-app.use(helmet())
-// enable CORS - Cross Origin Resource Sharing
-app.use(cors())
-
-app.get('/', (req, res) => {
-  res.send('Hello Nodejs!');
-});
 
 app.listen(config.port, (err) => {
   if (err) {
