@@ -15,11 +15,11 @@ chai.use(chaiHttp);
 
 describe('Books', () => {
 
-  /*beforeEach((done) => {
+  beforeEach((done) => {
     Book.remove({}, (err) => {
       done();
     });
-  });*/
+  });
 
  /*  describe('/GET user', () => {
     it('it should GET all the users', (done) => {
