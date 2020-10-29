@@ -21,7 +21,7 @@ describe('Books', () => {
     });
   });*/
 
-  describe('/GET user', () => {
+ /*  describe('/GET user', () => {
     it('it should GET all the users', (done) => {
       chai.request(server)
         .get('/api/users')
@@ -32,7 +32,7 @@ describe('Books', () => {
           done();
         });
     });
-  });
+  }); */
  /*  describe('/POST user', () => {
 
     it('it should POST a user ', (done) => {
@@ -105,8 +105,6 @@ describe('Books', () => {
             res.should.have.status(200);
             res.body.should.be.a('object');
             //res.body.should.have.property('message').eql('Book successfully deleted!');
-            //res.body.result.should.have.property('ok').eql(1);
-           // res.body.result.should.have.property('n').eql(1);
             done();
           });
       });

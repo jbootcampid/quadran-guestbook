@@ -30,16 +30,31 @@ const create = (req, res, next) => {
     }
   })
 } 
+const postGuest = async (req, res) => {
+  const guest = new Guest(req.body)
+  try {
+    await guest.save()
+    return res.status(200).json({
+      message: "Guest successfully added!",guest
+    })
+  } catch (err) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(err)
+    })
+  }
+}
 
 
 
 const guestByID = async (req, res, next, id) => {
+  console.log('geust by id'+id)
   try {
     let guest = await Guest.findById(id)
     if (!guest)
       return res.status('400').json({
         error: "Guest not found"
       })
+    console.log(guest)
     req.profile = guest
     next()
   } catch (err) {
@@ -47,6 +62,12 @@ const guestByID = async (req, res, next, id) => {
       error: "Could not retrieve guest"
     })
   }
+}
+
+const read = (req, res) => {
+  req.profile.__v=undefined
+  req.profile.created=undefined
+  return res.json(req.profile)
 }
 
 const list = async (req, res) => {
@@ -66,7 +87,9 @@ const update = async (req, res) => {
     guest = extend(guest, req.body)
     guest.updated = Date.now()
     await guest.save()
-    res.json(guest)
+    return res.status(200).json({
+      message: "Guest successfully updated!", guest
+    })
   } catch (err) {
     return res.status(400).json({
       error: errorHandler.getErrorMessage(err)
@@ -78,7 +101,9 @@ const remove = async (req, res) => {
   try {
     let guest = req.profile
     let deletedGuest = await guest.remove()
-    res.json(deletedGuest)
+    res.status(200).json({
+      message: "Guest successfully deleted!"
+    })
   } catch (err) {
     return res.status(400).json({
       error: errorHandler.getErrorMessage(err)
@@ -88,6 +113,8 @@ const remove = async (req, res) => {
 
 export default {
   create,
+  postGuest,
+  read,
   guestByID,
   list,
   remove,

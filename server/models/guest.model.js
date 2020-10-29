@@ -24,10 +24,6 @@ const GuestSchema = new mongoose.Schema({
     trim: true,
     required: 'PhoneNumber is required'
   },
-  image: {
-    data: Buffer,
-    contentType: String
-  },
   updated: Date,
   created: {
     type: Date,
