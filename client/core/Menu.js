@@ -18,7 +18,7 @@ const Menu = withRouter(({history}) => (
   <AppBar position="static">
     <Toolbar>
       <Typography variant="h6" color="inherit">
-        MERN Skeleton
+        Guest Book Quadran
       </Typography>
       <Link to="/">
         <IconButton aria-label="Home" style={isActive(history, "/")}>
@@ -27,6 +27,12 @@ const Menu = withRouter(({history}) => (
       </Link>
       <Link to="/users">
         <Button style={isActive(history, "/users")}>Users</Button>
+      </Link>
+      <Link to="/guests">
+        <Button style={isActive(history, "/guests")}>Guests</Button>
+      </Link>
+      <Link to="/newGuest">
+        <Button style={isActive(history, "/add")}>Add Guests</Button>
       </Link>
       {
         !auth.isAuthenticated() && (<span>

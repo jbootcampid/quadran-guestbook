@@ -38,7 +38,6 @@ export default function Home(){
           <Typography variant="h6" className={classes.title}>
             Home Page
           </Typography>
-          <Typography variant="body2" component="p" className={classes.credit} color="textSecondary">Photo by <a href="https://unsplash.com/@boudewijn_huysmans" target="_blank" rel="noopener noreferrer">Boudewijn Huysmans</a> on Unsplash</Typography>
           <CardContent>
             <Typography variant="body1" component="p">
               Quadran Guest Books
