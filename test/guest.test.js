@@ -13,12 +13,12 @@ chai.use(chaiHttp);
 describe('Guest', () => {
 
   // delete all data first
-     beforeEach((done) => {
+   /*   beforeEach((done) => {
       Guest.deleteMany({}, (err) => {
         done();
       });
   
-    }); 
+    });  */
 
   /*
    * Test the /POST 
