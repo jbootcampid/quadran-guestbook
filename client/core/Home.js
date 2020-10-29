@@ -41,7 +41,7 @@ export default function Home(){
           <Typography variant="body2" component="p" className={classes.credit} color="textSecondary">Photo by <a href="https://unsplash.com/@boudewijn_huysmans" target="_blank" rel="noopener noreferrer">Boudewijn Huysmans</a> on Unsplash</Typography>
           <CardContent>
             <Typography variant="body1" component="p">
-              Welcome to the MERN Skeleton home page.
+              Quadran Guest Books
             </Typography>
           </CardContent>
         </Card>
