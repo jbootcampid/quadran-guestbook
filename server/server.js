@@ -18,4 +18,4 @@ app.listen(config.port, (err) => {
   console.info('Server started on port %s.', config.port)
 })
 
-module.exports = app; // for testing
+//module.exports = app; // for testing

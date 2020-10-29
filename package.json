@@ -2,10 +2,13 @@
   "name": "guestbook",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "template.js",
+  "main": "./dist/server.generated.js",
   "scripts": {
-    "start": "nodemon",
-    "test": "./node_modules/.bin/mocha --require @babel/register ./test/guest.test.js"
+    "dev" : "nodemon",
+    "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
+    "start": "NODE_ENV=production node ./dist/server.generated.js",
+    "test": "./node_modules/.bin/mocha --require @babel/register ./test/guest.test.js",
+    "babel" : "babel-node server/server.js"
   },
   "engines": {
     "node": "15.0.0",
